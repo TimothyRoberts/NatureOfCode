@@ -3,7 +3,6 @@ function setup() {
   background(127);
 }
 
-//LOOPS AND EXECUTES WALKER FUNCTIONS
 function draw() { 
 
   //x location has a mean of 0 and a standard
@@ -11,6 +10,7 @@ function draw() {
   var xloc = randomGaussian();
   console.log(xloc);
 
+  //standard deviation is 68%
   var sd = 68;
   var mean = width/2;
 

@@ -4,7 +4,6 @@ function setup() {
 }
 
 function draw() { 
-
   //x and y location has a mean of 0 and a standard
   //deviation of 1
   var xloc = randomGaussian();
@@ -25,5 +24,4 @@ function draw() {
   noStroke();
 
   ellipse(xloc, yloc, 16, 16);
-
 }

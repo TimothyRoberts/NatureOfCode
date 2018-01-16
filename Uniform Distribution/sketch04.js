@@ -2,7 +2,7 @@ function setup() {
   createCanvas(640,360); 
   background(127);
 }
-
+ 
 function draw() { 
 
   //x location has a mean of 0 and a standard

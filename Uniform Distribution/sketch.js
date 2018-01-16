@@ -25,19 +25,12 @@ function Walker() {
 
   //RANDOMLY CHANGES POINT X/Y COORDINATES
   this.step = function(){
-    var choice = floor(random(4)); //floor() changes the random float into its rounded down integer
-    if(choice === 0){
-      this.x++;
-    } 
-    else if(choice === 1){
-      this.x--;
-    }
-    else if(choice === 2){
-      this.y++;
-    }
-    else {
-      this.y--;
-    }
+    
+    var stepx = floor(random(-1,2));
+    var stepy = floor(random(-1,2));
+
+    this.x += stepx;
+    this.y += stepy;
 
     //Restricts point's x and y to the canvas
     this.x = constrain(this.x, 0, width);

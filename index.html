@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Spreader_mk9_Tim</title>
+  <script src="p5.min.js"></script>
+  <script src="mappa.min.js"></script>
+</head>
+
+<body>
+  <script>
+  
+  	// Create a variable to hold our map
+	var myMap;
+	// Create a variable to hold our canvas
+	var canvas;
+	// Create a new Mappa instance using Leaflet.
+	var mappa = new Mappa('Leaflet');
+
+	var options = {
+		lat: 53.47947,
+		lng: -8.06396,
+		zoom: 7,
+		style: "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
+	}
+
+	var dublinLat = 53.32226;
+	var dublinLng = -6.43799;
+	var speed = 0.005; //speed of car
+
+
+	function setup(){
+		// Create a canvas 640x640
+		canvas = createCanvas(620,620); 
+		//frameRate(5);
+		//background(100);
+
+		//Create tilemap (lat,lng,zoom,style)
+		myMap = mappa.tileMap(options);
+		// Overlay the tilemap on top of the canvas
+		myMap.overlay(canvas);
+
+		// map.fitbounds( [
+		// 	[55.57019, -10.7666]
+		// 	[51.3765, -5.49316]
+		// ]);
+
+	}
+
+
+	function draw(){
+		clear();
+		// Every Frame, get the canvas position for the latitude and longitude of Dublin
+		var car = myMap.latLngToPixel(dublinLat, dublinLng); //dublin coordinates
+		var x = car.x;
+		// for(i=0;i<50;i++){
+		// x -= 5;}
+		// Using that position, draw an ellipse
+		ellipse(car.x, car.y, 8, 8);
+
+		//if dublinLng is less than -9.047 speed = +0.005
+		//else if dublinLng is > -6.43799 speed* -1
+		if(dublinLng > -9.04799000000013) {
+			dublinLng -= speed;
+		}
+
+		// dublinLng -= 0.005; //-9.04799000000013
+
+
+	}
+
+
+  </script>
+</body>
+
+</html>

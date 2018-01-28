@@ -36,3 +36,24 @@ function draw() {
 
 }
 ```js
+
+I also simplified this code by using the randomGuassian function parameters to define the mean and the standard deviation of xloc and it worked the same way.
+
+```js
+function setup() {
+  createCanvas(640,360); 
+  background(127);
+}
+ 
+function draw() { 
+
+  var xloc = randomGaussian(width/2, 68);
+
+  fill(0,10);
+  noStroke();
+  ellipse(xloc, height/2, 16, 16);
+
+}
+```
+
+

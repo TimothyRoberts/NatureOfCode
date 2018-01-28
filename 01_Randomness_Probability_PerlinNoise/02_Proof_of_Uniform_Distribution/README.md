@@ -4,7 +4,7 @@ In this exercise the aim was to prove how the random() function in p5 is a form 
 
 The objective was to illustrate this lack of total randomness using rectangles - every frame a "randomly" chosen rectangle will increment in height. First we create an array called randomCounts and store 20 variables inside it each equal to 0. 
 
-'''js
+```js
 var randomCounts = [];
 var total = 20; 
 
@@ -14,10 +14,10 @@ function setup() {
     randomCounts[i] = 0;
   }
 }
-'''
+```
 
 In the draw function (which is constantly looping) we select a "random" variable from our array and increment its value by 1.
-,,,js
+```js
 function draw() {
 
   background(127); //draws over canvas each frame
@@ -26,11 +26,11 @@ function draw() {
   var index = floor(random(total));
   randomCounts[index]++; //eg randomCounts[8]++
 
-,,,
+```
 
 We then draw 20 rectangles side by side using the arrays value to determine the height - so if randomCounts[8] = 1, then the 8th rectangle will be 1 pixel high. 
 
-,,,js
+```js
 stroke(0);
   strokeWeight(2);
   fill(255);
@@ -42,6 +42,6 @@ stroke(0);
   }
 
 }
-,,,
+```
 
 These rectangles now show us what random numbers are being selected by the random() function. The results show us that the rectangles are all similar in height. If the results were truly random, it would be more probable that one rectangle may be far higher than another. Uniform distribution takes into consideration the random values that have already been created.

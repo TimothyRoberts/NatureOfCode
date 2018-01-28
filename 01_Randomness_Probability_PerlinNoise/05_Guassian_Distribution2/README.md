@@ -1,3 +1,28 @@
 # Random Walker
 
-In this exercise I have created a cell that randomly steps up, down, left or right each frame. The background is not refreshed each frame so the trail of the cell is visible. I am using the random() function in p5 which is a form of uniform distribution - this means that the random value given is remembered and effects the following random value given.
+Here, the exact same principles used in the previous exercise were used. The only difference is that a now mean and standard deviation was added to the y coordinates of the ellipses aswell as the x coordinates. 
+
+```js
+function draw() { 
+  //x and y location has a mean of 0 and a standard
+  //deviation of 1
+  var xloc = randomGaussian();
+  var yloc = randomGaussian();
+  
+  var xsd = 100;
+  var ysd = 40;
+
+  var xMean = width/2;
+  var yMean = height/2;
+
+  xloc = (xloc * xsd) + xMean
+  yloc = (yloc * ysd) + yMean
+
+  var rColor = 233;
+
+  fill(rColor,50);
+  noStroke();
+
+  ellipse(xloc, yloc, 16, 16);
+}
+```

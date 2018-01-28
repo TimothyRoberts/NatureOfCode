@@ -35,7 +35,7 @@ function draw() {
   ellipse(xloc, height/2, 16, 16);
 
 }
-```js
+```
 
 I also simplified this code by using the randomGuassian function parameters to define the mean and the standard deviation of xloc and it worked the same way.
 

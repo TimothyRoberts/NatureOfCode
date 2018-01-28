@@ -37,7 +37,7 @@ function draw() {
 }
 ```
 
-I also simplified this code by using the randomGuassian function parameters to define the mean and the standard deviation of xloc and it worked the same way.
+I also tried simplifying this code by using the randomGuassian function parameters to define the mean and the standard deviation of xloc and it worked the same way.
 
 ```js
 function setup() {

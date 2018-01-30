@@ -1,4 +1,4 @@
-# One Dimensional Perlin Noise2
+# One Dimensional Perlin Noise Part 2
 
 In this exercise, we want to add multiple subjects which can now move around the x AND y axis using p5's noise() function.
 

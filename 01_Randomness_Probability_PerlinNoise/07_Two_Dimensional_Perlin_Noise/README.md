@@ -1,1 +1,0 @@
-# Two Dimensional Perlin Noise

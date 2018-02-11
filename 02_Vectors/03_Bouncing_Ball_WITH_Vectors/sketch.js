@@ -10,9 +10,12 @@ function setup() {
 function draw() {
   background(51);
 
+  // //add the current speed to position
+  // position.x = position.x + velocity.x;
+  // position.y = position.y + velocity.y;
+
   //add the current speed to position
-  position.x = position.x + velocity.x;
-  position.y = position.y + velocity.y;
+  position.add(velocity);
 
   if((position.x > width) || (position.x < 0)) {
     velocity.x = velocity.x * -1;

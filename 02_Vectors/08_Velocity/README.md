@@ -1,22 +1,19 @@
 # Vector Velocity
 
-In this example, the line becomes a unit vector by using the normalize and mult function. Normalize makes the cector length equal to 1, then we simply multiply that by 50 to increase its length.
+In this example, a class is created to draw an ellipse and update it's position each frame. The position changes by adding a velocity vector to the position
 
 ```js
-function draw() {
-  background(51);
+var Mover = function() {
+    this.position = createVector(random(width), random(height));
+    this.velocity = createVector(random(-2,2), random(-2,2));
 
-  var mouse = createVector(mouseX, mouseY);
-  var center = createVector(width / 2, height / 2);
-  var vectorLine = mouse.sub(center);
-  //vectorLine.mult(0.5);
 
-  vectorLine.normalize();
-  vectorLine.mult(50);
+  this.applyForce = function(force) {
+    var f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
 
-  translate(width / 2, height / 2);
-  strokeWeight(2);
-  stroke(255);
-  line(0, 0, vectorLine.x, vectorLine.y);
-}
+  this.update = function() {
+    this.position.add(this.velocity);
+  }
 ```

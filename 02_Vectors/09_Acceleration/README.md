@@ -1,22 +1,24 @@
-# Vector Normalization
+# Vector Acceleration
 
-In this example, the line becomes a unit vector by using the normalize and mult function. Normalize makes the cector length equal to 1, then we simply multiply that by 50 to increase its length.
+Similar to the previous example, here we add an acceleration vector to the velocity each frame. A top speed limit is added so that it doesn't continuosly accelerate.
 
 ```js
-function draw() {
-  background(51);
+var Mover = function() {
+    this.position = createVector(random(width), random(height));
+    this.velocity = createVector(random(-2,2), random(-2,2));
+    this.acceleration = createVector(-0.01, 0.01);
 
-  var mouse = createVector(mouseX, mouseY);
-  var center = createVector(width / 2, height / 2);
-  var vectorLine = mouse.sub(center);
-  //vectorLine.mult(0.5);
+    this.topSpeed = 25;
 
-  vectorLine.normalize();
-  vectorLine.mult(50);
 
-  translate(width / 2, height / 2);
-  strokeWeight(2);
-  stroke(255);
-  line(0, 0, vectorLine.x, vectorLine.y);
-}
+  this.applyForce = function(force) {
+    var f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+
+  this.update = function() {
+    this.velocity.add(this.acceleration);
+    this.velocity.limit(this.topSpeed);
+    this.position.add(this.velocity);
+  }
 ```

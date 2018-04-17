@@ -1,4 +1,4 @@
-# Vector Normalization
+# Vector Velocity
 
 In this example, the line becomes a unit vector by using the normalize and mult function. Normalize makes the cector length equal to 1, then we simply multiply that by 50 to increase its length.
 
